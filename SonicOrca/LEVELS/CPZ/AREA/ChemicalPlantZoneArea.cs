@@ -102,10 +102,8 @@ namespace SONICORCA.LEVELS.CPZ.AREA
             this._level.LevelMusic = "SONICORCA/MUSIC/LEVELS/CPZ/ACT2";
             this._level.CurrentAct = 2;
             this._level.SetStartPosition("startpos_stk_2");
-            Rectanglei act2Bounds = this.GetAct2Bounds() with
-            {
-                Right = this._level.GetMarker("boss_right").Position.X
-            };
+            Rectanglei act2Bounds = this.GetAct2Bounds();
+            act2Bounds.Right = this._level.GetMarker("boss_right").Position.X;
             this._level.Bounds = act2Bounds;
             this._level.RingsPerfectTarget = this._level.ObjectManager.ObjectEntryTable.GetRingCountInRegion(act2Bounds);
             this._state = 0;
@@ -117,10 +115,8 @@ namespace SONICORCA.LEVELS.CPZ.AREA
         {
             this._level.LevelMusic = "SONICORCA/MUSIC/LEVELS/CPZ/ACT2";
             this._level.CurrentAct = 2;
-            Rectanglei act2Bounds = this.GetAct2Bounds() with
-            {
-                Right = this._level.GetMarker("boss_right").Position.X
-            };
+            Rectanglei act2Bounds = this.GetAct2Bounds();
+            act2Bounds.Right = this._level.GetMarker("boss_right").Position.X;
             this._level.RingsPerfectTarget = this._level.ObjectManager.ObjectEntryTable.GetRingCountInRegion(act2Bounds);
             this.ExtendSeamlessLevelBounds(this._level, act2Bounds);
             this._state = 0;
@@ -194,11 +190,10 @@ namespace SONICORCA.LEVELS.CPZ.AREA
                     int y = this._level.GetMarker("boss_bottom").Position.Y;
                     if (bounds2.Left < x1)
                         break;
-                    this._level.ScrollBoundsTo((Rectanglei)bounds1 with
-                    {
-                        Left = x1,
-                        Bottom = y
-                    }, 2);
+                    Rectanglei newBounds = (Rectanglei)bounds1;
+                    newBounds.Left = x1;
+                    newBounds.Bottom = y;
+                    this._level.ScrollBoundsTo(newBounds, 2);
                     ++this._state;
                     break;
                 case 1:

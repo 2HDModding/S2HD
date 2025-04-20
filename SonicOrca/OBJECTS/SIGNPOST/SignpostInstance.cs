@@ -88,12 +88,9 @@ namespace SONICORCA.OBJECTS.SIGNPOST
         {
           while (!signpostInstance._activated)
           {
-            // ISSUE: explicit non-virtual call
-            foreach (ICharacter character in __nonvirtual (signpostInstance.Level).ObjectManager.Characters)
+            foreach (ICharacter character in signpostInstance.Level.ObjectManager.Characters)
             {
-              // ISSUE: explicit non-virtual call
-              // ISSUE: explicit non-virtual call
-              if (!character.IsSidekick && !character.IsDebug && character.ShouldReactToLevel && character.Position.X >= __nonvirtual (signpostInstance.Position).X && character.LastPosition.X < __nonvirtual (signpostInstance.Position).X)
+              if (!character.IsSidekick && !character.IsDebug && character.ShouldReactToLevel && character.Position.X >= signpostInstance.Position.X && character.LastPosition.X < signpostInstance.Position.X)
                 signpostInstance.Activate(character);
             }
             yield return UpdateResult.Next();
@@ -122,17 +119,17 @@ namespace SONICORCA.OBJECTS.SIGNPOST
             }
           }
           // ISSUE: explicit non-virtual call
-          Rectanglei bounds = __nonvirtual (signpostInstance.Level).Bounds;
+          Rectanglei bounds = signpostInstance.Level.Bounds;
           while (bounds.Bottom != signpostInstance._targetCameraBottom)
           {
             bounds.Bottom = MathX.GoTowards(bounds.Bottom, signpostInstance._targetCameraBottom, 6);
             // ISSUE: explicit non-virtual call
-            __nonvirtual (signpostInstance.Level).Bounds = bounds;
+            signpostInstance.Level.Bounds = bounds;
             yield return UpdateResult.Next();
           }
           yield return UpdateResult.Wait(80 /*0x50*/);
           // ISSUE: explicit non-virtual call
-          __nonvirtual (signpostInstance.Level).CompleteLevel();
+          signpostInstance.Level.CompleteLevel();
           signpostInstance._triggedEndGame = true;
         }
       }

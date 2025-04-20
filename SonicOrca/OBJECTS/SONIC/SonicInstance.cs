@@ -53,7 +53,7 @@ namespace SONICORCA.OBJECTS.SONIC
         Vector2 vector2_1 = new Vector2();
         vector2_1 = !this.IsSpinball ? new Vector2(offset.X, offset.Y - 16.0) : new Vector2(offset.X, offset.Y - 4.0);
         Vector2 vector2_2 = vector2_1;
-        Rectangle destination;
+        Rectangle destination = new Rectangle();
         ref Rectangle local = ref destination;
         double x = vector2_2.X - (double) (currentFrame.Source.Width / 2);
         double y1 = vector2_2.Y;

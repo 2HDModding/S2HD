@@ -304,8 +304,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
               parentObject._armExtension = Math.Min(256 /*0x0100*/, parentObject._armExtension + 8);
               if (parentObject._armExtension >= 24)
                 parentObject._willJarSplashRobotnik = false;
-              // ISSUE: explicit non-virtual call
-              ICharacter protagonist = __nonvirtual (parentObject.Level).Player.Protagonist;
+              ICharacter protagonist = parentObject.Level.Player.Protagonist;
               int dest2 = parentObject._fillSide != -1 ? protagonist.Position.X + 256 /*0x0100*/ + 48 /*0x30*/ : protagonist.Position.X - 256 /*0x0100*/ - 48 /*0x30*/;
               parentObject._nonHoverPosition.X = MathX.GoTowards(parentObject._nonHoverPosition.X, (double) dest2, 12.0);
               if (parentObject._armExtension == 256 /*0x0100*/ && parentObject._nonHoverPosition.X == (double) dest2)
@@ -323,10 +322,10 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
                 vector2i.X += parentObject._flipX ? 8 : -8;
                 vector2i.Y -= 16 /*0x10*/;
                 // ISSUE: explicit non-virtual call
-                WaterEggmanInstance.ChemicalDroplet chemicalDroplet = __nonvirtual (parentObject.Level).ObjectManager.AddSubObject<WaterEggmanInstance.ChemicalDroplet>((ActiveObject) parentObject);
+                WaterEggmanInstance.ChemicalDroplet chemicalDroplet = parentObject.Level.ObjectManager.AddSubObject<WaterEggmanInstance.ChemicalDroplet>((ActiveObject) parentObject);
                 chemicalDroplet.FlipX = parentObject._flipX;
                 // ISSUE: explicit non-virtual call
-                chemicalDroplet.Position = __nonvirtual (parentObject.Position) + vector2i;
+                chemicalDroplet.Position = parentObject.Position + vector2i;
                 parentObject._jarEmpty = true;
                 parentObject._jarFull = false;
               }
@@ -369,7 +368,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           parentObject._velocityY += 0.375;
           parentObject._nonHoverPosition += new Vector2(0.0, parentObject._velocityY);
           // ISSUE: explicit non-virtual call
-          __nonvirtual (parentObject.PositionPrecise) = parentObject._nonHoverPosition;
+          parentObject.PositionPrecise = parentObject._nonHoverPosition;
           yield return UpdateResult.Next();
         }
         while (parentObject._velocityY < 15.0);
@@ -380,14 +379,14 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
         {
           parentObject._nonHoverPosition += new Vector2(0.0, -6.0);
           // ISSUE: explicit non-virtual call
-          __nonvirtual (parentObject.PositionPrecise) = parentObject._nonHoverPosition;
+          parentObject.PositionPrecise = parentObject._nonHoverPosition;
           yield return UpdateResult.Next();
         }
         parentObject.Defeated = true;
         parentObject._state = WaterEggmanInstance.State.Fleeing;
         parentObject.Fleeing = true;
         // ISSUE: explicit non-virtual call
-        __nonvirtual (parentObject.PositionPrecise) = parentObject._nonHoverPosition;
+        parentObject.PositionPrecise = parentObject._nonHoverPosition;
         int hover_failure_ticks = 0;
         while (true)
         {
@@ -814,11 +813,11 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           {
             boiler._flipX = boiler.Parent._flipX;
             // ISSUE: explicit non-virtual call
-            __nonvirtual (boiler.Position) = boiler.Parent.Position;
+            boiler.Position = boiler.Parent.Position;
             if (boiler.Parent.Finished)
             {
               // ISSUE: explicit non-virtual call
-              __nonvirtual (boiler.Finish());
+              boiler.Finish();
             }
             yield return UpdateResult.Next();
           }
@@ -846,16 +845,11 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           {
             if (!isUnderwater)
             {
-              // ISSUE: explicit non-virtual call
-              // ISSUE: explicit non-virtual call
-              if (__nonvirtual (boiler.Level).WaterManager.IsUnderwater(__nonvirtual (boiler.Position)))
+              if (this.Level.WaterManager.IsUnderwater(this.Position))
               {
                 isUnderwater = true;
                 boiler._velocity = new Vector2(0.0, 1.0);
-                // ISSUE: explicit non-virtual call
-                // ISSUE: explicit non-virtual call
-                // ISSUE: explicit non-virtual call
-                __nonvirtual (boiler.Level).WaterManager.CreateSplash(__nonvirtual (boiler.Layer), SplashType.Enter, __nonvirtual (boiler.Position));
+                this.Level.WaterManager.CreateSplash(this.Layer, SplashType.Enter, this.Position);
               }
               else
               {
@@ -869,8 +863,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
               boiler._velocity += new Vector2(0.0, 7.0 / 16.0);
             }
             boiler.MovePrecise(boiler._velocity);
-            // ISSUE: explicit non-virtual call
-            if (__nonvirtual (boiler.Level).Ticks % 4 == 0)
+            if (this.Level.Ticks % 4 == 0)
               boiler.EmitSmoke();
             yield return UpdateResult.Next();
           }
@@ -1067,12 +1060,10 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           while (armFront._jarExplodeState == WaterEggmanInstance.ExplodeState.NotExploding)
           {
             armFront._flipX = armFront.Parent._flipX;
-            // ISSUE: explicit non-virtual call
-            __nonvirtual (armFront.Position) = armFront.Parent.Position;
+            armFront.Position = armFront.Parent.Position;
             if (armFront.Parent.Finished)
             {
-              // ISSUE: explicit non-virtual call
-              __nonvirtual (armFront.Finish());
+              armFront.Finish();
             }
             yield return UpdateResult.Next();
           }
@@ -1088,8 +1079,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           {
             Vector2i vector2i = vector2iArray[index];
             armFront._barExplodedLength += 16 /*0x10*/;
-            // ISSUE: explicit non-virtual call
-            armFront.EmitBar(__nonvirtual (armFront.Position) + vector2i);
+            armFront.EmitBar(armFront.Position + vector2i);
             yield return UpdateResult.Wait(4);
           }
           vector2iArray = (Vector2i[]) null;
@@ -1299,12 +1289,10 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           {
             suctionTube._flipX = suctionTube.Parent._flipX;
             suctionTube._numSegments = (suctionTube.Parent._tubeY - 80 /*0x50*/) / 16 /*0x10*/;
-            // ISSUE: explicit non-virtual call
-            __nonvirtual (suctionTube.Position) = suctionTube.Parent.Position;
+            suctionTube.Position = suctionTube.Parent.Position;
             if (suctionTube.Parent.Finished)
             {
-              // ISSUE: explicit non-virtual call
-              __nonvirtual (suctionTube.Finish());
+              suctionTube.Finish();
             }
             yield return UpdateResult.Next();
           }
@@ -1313,8 +1301,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           int y = 80 /*0x50*/;
           while (y < maxY)
           {
-            // ISSUE: explicit non-virtual call
-            Vector2i position = __nonvirtual (suctionTube.Position) + new Vector2i(x, y);
+            Vector2i position = suctionTube.Position + new Vector2i(x, y);
             suctionTube.Parent.ReleaseFragmentMetal(position, 4.0);
             y += 136;
             yield return UpdateResult.Wait(4);
@@ -1323,8 +1310,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           suctionTube._explodedAnimationInstance = new AnimationInstance(suctionTube.Parent._animationGroup, 38);
           while (suctionTube._explodeState != WaterEggmanInstance.ExplodeState.Falling)
             yield return UpdateResult.Next();
-          // ISSUE: explicit non-virtual call
-          suctionTube.Parent.ReleaseFragmentMetal(__nonvirtual (suctionTube.Position) + new Vector2i(0, 80 /*0x50*/), 4.0);
+          suctionTube.Parent.ReleaseFragmentMetal(suctionTube.Position + new Vector2i(0, 80 /*0x50*/), 4.0);
           suctionTube.LockLifetime = false;
           while (true)
           {
@@ -1385,12 +1371,9 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
             yield return UpdateResult.Next();
             chemicalDroplet._velocityY += 0.875;
             chemicalDroplet.MovePrecise(0.0, chemicalDroplet._velocityY);
-            // ISSUE: explicit non-virtual call
-            // ISSUE: explicit non-virtual call
-            if (__nonvirtual (chemicalDroplet.Level).WaterManager.IsUnderwater(__nonvirtual (chemicalDroplet.Position)))
+            if (this.Level.WaterManager.IsUnderwater(this.Position))
             {
-              // ISSUE: explicit non-virtual call
-              __nonvirtual (chemicalDroplet.Finish());
+              chemicalDroplet.Finish();
               yield break;
             }
           }
@@ -1404,8 +1387,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
           chemicalDroplet._animationInstance = new AnimationInstance(chemicalDroplet.Parent._animationGroup, 32 /*0x20*/);
           while (chemicalDroplet._animationInstance.Cycles == 0)
             yield return UpdateResult.Next();
-          // ISSUE: explicit non-virtual call
-          __nonvirtual (chemicalDroplet.Finish());
+          chemicalDroplet.Finish();
         }
 
         private bool HasHitFloor()
@@ -1436,7 +1418,7 @@ namespace SONICORCA.OBJECTS.WATEREGGMAN
         {
           for (int index = 0; index < 5; ++index)
           {
-            WaterEggmanInstance.ChemicalDropletProjectile dropletProjectile = this.Level.ObjectManager.AddSubObject<WaterEggmanInstance.ChemicalDropletProjectile>((ActiveObject) this.Parent);
+            WaterEggmanInstance.ChemicalDropletProjectile dropletProjectile = this.Level.ObjectManager.AddSubObject<WaterEggmanInstance.ChemicalDropletProjectile>(this.ParentObject);
             dropletProjectile.Position = this.Position;
             dropletProjectile.Velocity = new Vector2((double) (this.Level.Random.NextSign() * this.Level.Random.Next(2, 5)), -this._velocityY - (double) this.Level.Random.Next(0, 4));
           }

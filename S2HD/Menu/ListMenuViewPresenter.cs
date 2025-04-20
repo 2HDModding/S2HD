@@ -213,7 +213,7 @@ label_21:
     bounds1 = this.Bounds;
     int width1 = bounds1.Width;
     Rectanglei rectanglei1 = new Rectanglei(x1, y1, width1, 64 /*0x40*/);
-    Rectanglei rectanglei2;
+    Rectanglei rectanglei2 = new Rectanglei();
     ref Rectanglei local = ref rectanglei2;
     Rectanglei bounds2 = this.Bounds;
     int x2 = bounds2.X;

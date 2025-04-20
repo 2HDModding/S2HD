@@ -96,7 +96,7 @@ namespace SONICORCA.OBJECTS.TAILS
         if (this.DrawBodyRotated)
           characterRenderer.ModelMatrix *= Matrix4.CreateRotationZ(this.ShowAngle);
         Vector2 offset;
-        Rectangle destination;
+        Rectangle destination = new Rectangle();
         Rectanglei source;
         if (this._tailAnimationInstance.Index != -1)
         {
