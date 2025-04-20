@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: S2HD.SharedRenderers
 // Assembly: S2HD, Version=2.0.1012.10521, Culture=neutral, PublicKeyToken=null
 // MVID: 18631A0F-16CF-4E18-8563-1EC5E54750D6
@@ -7,45 +7,47 @@
 using SonicOrca.Graphics;
 using System;
 
-namespace S2HD;
-
-internal static class SharedRenderers
+namespace S2HD
 {
-  private static readonly object InitialiseLock = new object();
 
-  public static bool Initialised { get; private set; }
-
-  public static I2dRenderer Standard2d { get; private set; }
-
-  public static IFadeTransitionRenderer FadeTransition { get; private set; }
-
-  public static void Initialise(IRendererFactory rendererFactory)
-  {
-    lock (SharedRenderers.InitialiseLock)
+    internal static class SharedRenderers
     {
-      if (SharedRenderers.Initialised)
-        throw new InvalidOperationException("Shared renderers already initialised.");
-      SharedRenderers.Standard2d = rendererFactory.Create2dRenderer();
-      SharedRenderers.FadeTransition = rendererFactory.CreateFadeTransitionRenderer();
-      SharedRenderers.Initialised = true;
-    }
-  }
+      private static readonly object InitialiseLock = new object();
 
-  public static void Dispose()
-  {
-    lock (SharedRenderers.InitialiseLock)
-    {
-      if (SharedRenderers.Standard2d != null)
+      public static bool Initialised { get; private set; }
+
+      public static I2dRenderer Standard2d { get; private set; }
+
+      public static IFadeTransitionRenderer FadeTransition { get; private set; }
+
+      public static void Initialise(IRendererFactory rendererFactory)
       {
-        SharedRenderers.Standard2d.Dispose();
-        SharedRenderers.Standard2d = (I2dRenderer) null;
+        lock (SharedRenderers.InitialiseLock)
+        {
+          if (SharedRenderers.Initialised)
+            throw new InvalidOperationException("Shared renderers already initialised.");
+          SharedRenderers.Standard2d = rendererFactory.Create2dRenderer();
+          SharedRenderers.FadeTransition = rendererFactory.CreateFadeTransitionRenderer();
+          SharedRenderers.Initialised = true;
+        }
       }
-      if (SharedRenderers.FadeTransition != null)
+
+      public static void Dispose()
       {
-        SharedRenderers.FadeTransition.Dispose();
-        SharedRenderers.FadeTransition = (IFadeTransitionRenderer) null;
+        lock (SharedRenderers.InitialiseLock)
+        {
+          if (SharedRenderers.Standard2d != null)
+          {
+            SharedRenderers.Standard2d.Dispose();
+            SharedRenderers.Standard2d = (I2dRenderer) null;
+          }
+          if (SharedRenderers.FadeTransition != null)
+          {
+            SharedRenderers.FadeTransition.Dispose();
+            SharedRenderers.FadeTransition = (IFadeTransitionRenderer) null;
+          }
+          SharedRenderers.Initialised = false;
+        }
       }
-      SharedRenderers.Initialised = false;
     }
-  }
 }

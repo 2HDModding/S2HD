@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: S2HD.CommandLineArguments
 // Assembly: S2HD, Version=2.0.1012.10521, Culture=neutral, PublicKeyToken=null
 // MVID: 18631A0F-16CF-4E18-8563-1EC5E54750D6
@@ -7,61 +7,63 @@
 using SonicOrca.Extensions;
 using System.Collections.Generic;
 
-namespace S2HD;
-
-internal class CommandLineArguments
+namespace S2HD
 {
-  private readonly HashSet<char> _flags = new HashSet<char>();
-  private readonly Dictionary<string, string[]> _options = new Dictionary<string, string[]>();
-  private readonly string _commandLine;
 
-  public CommandLineArguments(IEnumerable<string> args)
-    : this(args.AsArray<string>())
-  {
-  }
-
-  public CommandLineArguments(string[] args)
-  {
-    List<string> stringList = new List<string>();
-    this._commandLine = string.Join(" ", args);
-    for (int index = 0; index < args.Length; ++index)
+    internal class CommandLineArguments
     {
-      string str1 = args[index];
-      if (str1.StartsWith("--"))
+      private readonly HashSet<char> _flags = new HashSet<char>();
+      private readonly Dictionary<string, string[]> _options = new Dictionary<string, string[]>();
+      private readonly string _commandLine;
+
+      public CommandLineArguments(IEnumerable<string> args)
+        : this(args.AsArray<string>())
       {
-        string key = str1.Substring(2);
-        stringList.Clear();
-        for (++index; index < args.Length; ++index)
+      }
+
+      public CommandLineArguments(string[] args)
+      {
+        List<string> stringList = new List<string>();
+        this._commandLine = string.Join(" ", args);
+        for (int index = 0; index < args.Length; ++index)
         {
-          string str2 = args[index];
-          if (str2.StartsWith("-"))
+          string str1 = args[index];
+          if (str1.StartsWith("--"))
           {
-            --index;
-            break;
+            string key = str1.Substring(2);
+            stringList.Clear();
+            for (++index; index < args.Length; ++index)
+            {
+              string str2 = args[index];
+              if (str2.StartsWith("-"))
+              {
+                --index;
+                break;
+              }
+              stringList.Add(str2);
+            }
+            this._options.Add(key, stringList.ToArray());
           }
-          stringList.Add(str2);
+          else if (str1.StartsWith("-"))
+          {
+            foreach (char ch in str1.Substring(1))
+              this._flags.Add(ch);
+          }
         }
-        this._options.Add(key, stringList.ToArray());
       }
-      else if (str1.StartsWith("-"))
+
+      public bool HasFlag(char c) => this._flags.Contains(c);
+
+      public bool HasOption(string option) => this._options.ContainsKey(option);
+
+      public string[] GetOptionValues(string option)
       {
-        foreach (char ch in str1.Substring(1))
-          this._flags.Add(ch);
+        string[] optionValues;
+        if (!this._options.TryGetValue(option, out optionValues))
+          optionValues = new string[0];
+        return optionValues;
       }
+
+      public override string ToString() => this._commandLine;
     }
-  }
-
-  public bool HasFlag(char c) => this._flags.Contains(c);
-
-  public bool HasOption(string option) => this._options.ContainsKey(option);
-
-  public string[] GetOptionValues(string option)
-  {
-    string[] optionValues;
-    if (!this._options.TryGetValue(option, out optionValues))
-      optionValues = new string[0];
-    return optionValues;
-  }
-
-  public override string ToString() => this._commandLine;
 }
