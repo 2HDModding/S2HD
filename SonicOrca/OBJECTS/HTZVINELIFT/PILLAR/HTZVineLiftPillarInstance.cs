@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SONICORCA.OBJECTS.HTZVINELIFT.PILLAR.HTZVineLiftPillarInstance
 // Assembly: S2HD, Version=2.0.1012.10521, Culture=neutral, PublicKeyToken=null
 // MVID: 18631A0F-16CF-4E18-8563-1EC5E54750D6
@@ -10,46 +10,48 @@ using SonicOrca.Extensions;
 using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 
-namespace SONICORCA.OBJECTS.HTZVINELIFT.PILLAR;
-
-public class HTZVineLiftPillarInstance : ActiveObject
+namespace SONICORCA.OBJECTS.HTZVINELIFT.PILLAR
 {
-  private const int TopAnimationIndex = 2;
-  private const int BottomAnimationIndex = 3;
-  private AnimationInstance _animation;
-  private bool _flipX;
-  private bool _bottom;
 
-  [StateVariable]
-  private bool FlipX
-  {
-    get => this._flipX;
-    set => this._flipX = value;
-  }
+    public class HTZVineLiftPillarInstance : ActiveObject
+    {
+      private const int TopAnimationIndex = 2;
+      private const int BottomAnimationIndex = 3;
+      private AnimationInstance _animation;
+      private bool _flipX;
+      private bool _bottom;
 
-  [StateVariable]
-  private bool Bottom
-  {
-    get => this._bottom;
-    set => this._bottom = value;
-  }
+      [StateVariable]
+      private bool FlipX
+      {
+        get => this._flipX;
+        set => this._flipX = value;
+      }
 
-  public HTZVineLiftPillarInstance()
-  {
-    this.DesignBounds = new Rectanglei(-64, -170, 128 /*0x80*/, 340);
-  }
+      [StateVariable]
+      private bool Bottom
+      {
+        get => this._bottom;
+        set => this._bottom = value;
+      }
 
-  protected override void OnStart()
-  {
-    base.OnStart();
-    this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("//ANIGROUP"), this._bottom ? 3 : 2);
-    this.Priority = -256;
-  }
+      public HTZVineLiftPillarInstance()
+      {
+        this.DesignBounds = new Rectanglei(-64, -170, 128 /*0x80*/, 340);
+      }
 
-  protected override void OnAnimate() => this._animation.Animate();
+      protected override void OnStart()
+      {
+        base.OnStart();
+        this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("//ANIGROUP"), this._bottom ? 3 : 2);
+        this.Priority = -256;
+      }
 
-  protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
-  {
-    renderer.GetObjectRenderer().Render(this._animation, this._flipX);
-  }
+      protected override void OnAnimate() => this._animation.Animate();
+
+      protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
+      {
+        renderer.GetObjectRenderer().Render(this._animation, this._flipX);
+      }
+    }
 }

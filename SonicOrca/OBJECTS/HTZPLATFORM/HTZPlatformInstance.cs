@@ -1,4 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
+// Decompiled with JetBrains decompiler
 // Type: SONICORCA.OBJECTS.HTZPLATFORM.HTZPlatformInstance
 // Assembly: S2HD, Version=2.0.1012.10521, Culture=neutral, PublicKeyToken=null
 // MVID: 18631A0F-16CF-4E18-8563-1EC5E54750D6
@@ -11,32 +11,34 @@ using SonicOrca.Extensions;
 using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 
-namespace SONICORCA.OBJECTS.HTZPLATFORM;
-
-public class HTZPlatformInstance : Platform
+namespace SONICORCA.OBJECTS.HTZPLATFORM
 {
-  private AnimationInstance _animation;
 
-  public HTZPlatformInstance()
-  {
-    this.DesignBounds = new Rectanglei((int) sbyte.MinValue, -64, 256 /*0x0100*/, 128 /*0x80*/);
-    this.SagWhenStoodOn = true;
-  }
-
-  protected override void OnStart()
-  {
-    base.OnStart();
-    this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"));
-    this.CollisionVectors = new CollisionVector[1]
+    public class HTZPlatformInstance : Platform
     {
-      new CollisionVector((ActiveObject) this, new Vector2i((int) sbyte.MinValue, -32), new Vector2i(128 /*0x80*/, -32), flags: CollisionFlags.Conveyor)
-    };
-  }
+      private AnimationInstance _animation;
 
-  protected override void OnAnimate() => this._animation.Animate();
+      public HTZPlatformInstance()
+      {
+        this.DesignBounds = new Rectanglei((int) sbyte.MinValue, -64, 256 /*0x0100*/, 128 /*0x80*/);
+        this.SagWhenStoodOn = true;
+      }
 
-  protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
-  {
-    renderer.GetObjectRenderer().Render(this._animation);
-  }
+      protected override void OnStart()
+      {
+        base.OnStart();
+        this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"));
+        this.CollisionVectors = new CollisionVector[1]
+        {
+          new CollisionVector((ActiveObject) this, new Vector2i((int) sbyte.MinValue, -32), new Vector2i(128 /*0x80*/, -32), flags: CollisionFlags.Conveyor)
+        };
+      }
+
+      protected override void OnAnimate() => this._animation.Animate();
+
+      protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
+      {
+        renderer.GetObjectRenderer().Render(this._animation);
+      }
+    }
 }

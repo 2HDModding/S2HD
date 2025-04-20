@@ -9,23 +9,24 @@ using SonicOrca.Core.Objects.Base;
 using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Geometry;
 
-namespace SONICORCA.OBJECTS.CPZPLATFORM;
+namespace SONICORCA.OBJECTS.CPZPLATFORM {
 
-[SonicOrca.Core.Objects.Metadata.Name("Floating platform")]
-[Description("Floating platform from Chemical Plant Zone, Sonic 2")]
-[SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Platform)]
-[ObjectInstance(typeof (CPZPlatformInstance))]
-public class CPZPlatformType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
-
-  public Vector2 GetLifeRadius(Platform state)
+  [SonicOrca.Core.Objects.Metadata.Name("Floating platform")]
+  [Description("Floating platform from Chemical Plant Zone, Sonic 2")]
+  [SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Platform)]
+  [ObjectInstance(typeof (CPZPlatformInstance))]
+  public class CPZPlatformType : ObjectType
   {
-    Vector2 movementRadius = state.MovementRadius;
-    double x = movementRadius.X;
-    movementRadius = state.MovementRadius;
-    double y = movementRadius.Y;
-    return new Vector2(x, y);
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+
+    public Vector2 GetLifeRadius(Platform state)
+    {
+      Vector2 movementRadius = state.MovementRadius;
+      double x = movementRadius.X;
+      movementRadius = state.MovementRadius;
+      double y = movementRadius.Y;
+      return new Vector2(x, y);
+    }
   }
 }

@@ -7,14 +7,15 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-namespace SONICORCA.OBJECTS.CAPSULE;
+namespace SONICORCA.OBJECTS.CAPSULE {
 
-[SonicOrca.Core.Objects.Metadata.Name("Capsule")]
-[Description("Capsule from Sonic 2")]
-[SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Capsule)]
-[ObjectInstance(typeof (CapsuleInstance))]
-public class CapsuleType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
+  [SonicOrca.Core.Objects.Metadata.Name("Capsule")]
+  [Description("Capsule from Sonic 2")]
+  [SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Capsule)]
+  [ObjectInstance(typeof (CapsuleInstance))]
+  public class CapsuleType : ObjectType
+  {
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+  }
 }

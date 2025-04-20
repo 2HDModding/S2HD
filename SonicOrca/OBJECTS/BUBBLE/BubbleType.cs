@@ -7,13 +7,13 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-namespace SONICORCA.OBJECTS.BUBBLE;
-
-[SonicOrca.Core.Objects.Metadata.Name("Bubble")]
-[Description("Bubble from Sonic 1")]
-[ObjectInstance(typeof (BubbleInstance))]
-public class BubbleType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
+namespace SONICORCA.OBJECTS.BUBBLE {
+  [SonicOrca.Core.Objects.Metadata.Name("Bubble")]
+  [Description("Bubble from Sonic 1")]
+  [ObjectInstance(typeof (BubbleInstance))]
+  public class BubbleType : ObjectType
+  {
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+  }
 }

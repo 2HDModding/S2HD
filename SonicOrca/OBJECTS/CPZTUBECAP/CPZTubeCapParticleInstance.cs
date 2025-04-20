@@ -10,41 +10,42 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Generic;
 
-namespace SONICORCA.OBJECTS.CPZTUBECAP;
+namespace SONICORCA.OBJECTS.CPZTUBECAP {
 
-public class CPZTubeCapParticleInstance : ActiveObject
-{
-  private const int AnimationParticle = 1;
-  private AnimationInstance _animation;
-  private Vector2 _velocity;
-
-  public Vector2 Velocity
+  public class CPZTubeCapParticleInstance : ActiveObject
   {
-    get => this._velocity;
-    set => this._velocity = value;
-  }
+    private const int AnimationParticle = 1;
+    private AnimationInstance _animation;
+    private Vector2 _velocity;
 
-  public CPZTubeCapParticleInstance() => this.DesignBounds = new Rectanglei(-60, -50, 120, 101);
+    public Vector2 Velocity
+    {
+      get => this._velocity;
+      set => this._velocity = value;
+    }
 
-  protected override void OnStart()
-  {
-    this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"), 1);
-    this._animation.CurrentFrameIndex = this.Level.Random.Next(0, ((IReadOnlyCollection<Animation.Frame>) this._animation.Animation.Frames).Count);
-    this.Priority = 1512;
-  }
+    public CPZTubeCapParticleInstance() => this.DesignBounds = new Rectanglei(-60, -50, 120, 101);
 
-  protected override void OnStop() => this.FinishForever();
+    protected override void OnStart()
+    {
+      this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"), 1);
+      this._animation.CurrentFrameIndex = this.Level.Random.Next(0, ((IReadOnlyCollection<Animation.Frame>) this._animation.Animation.Frames).Count);
+      this.Priority = 1512;
+    }
 
-  protected override void OnUpdate()
-  {
-    this._velocity.Y += 9.0 / 16.0;
-    this.PositionPrecise = this.PositionPrecise + this._velocity;
-  }
+    protected override void OnStop() => this.FinishForever();
 
-  protected override void OnAnimate() => this._animation.Animate();
+    protected override void OnUpdate()
+    {
+      this._velocity.Y += 9.0 / 16.0;
+      this.PositionPrecise = this.PositionPrecise + this._velocity;
+    }
 
-  protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
-  {
-    renderer.GetObjectRenderer().Render(this._animation);
+    protected override void OnAnimate() => this._animation.Animate();
+
+    protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
+    {
+      renderer.GetObjectRenderer().Render(this._animation);
+    }
   }
 }

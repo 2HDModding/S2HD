@@ -8,19 +8,20 @@ using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Geometry;
 
-namespace SONICORCA.OBJECTS.BUZZER;
+namespace SONICORCA.OBJECTS.BUZZER {
 
-[SonicOrca.Core.Objects.Metadata.Name("Buzzer")]
-[Description("Buzzer from Sonic 2")]
-[SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Badnik)]
-[ObjectInstance(typeof (BuzzerInstance))]
-public class BuzzerType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
-
-  public new Vector2 GetLifeRadius(ActiveObject state)
+  [SonicOrca.Core.Objects.Metadata.Name("Buzzer")]
+  [Description("Buzzer from Sonic 2")]
+  [SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Badnik)]
+  [ObjectInstance(typeof (BuzzerInstance))]
+  public class BuzzerType : ObjectType
   {
-    return (Vector2) new Vector2i(1024 /*0x0400*/, 0);
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+
+    public new Vector2 GetLifeRadius(ActiveObject state)
+    {
+      return (Vector2) new Vector2i(1024 /*0x0400*/, 0);
+    }
   }
 }

@@ -13,108 +13,109 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-namespace SONICORCA.OBJECTS.CPZSPEEDBOOSTER;
+namespace SONICORCA.OBJECTS.CPZSPEEDBOOSTER {
 
-public class CPZSpeedBoosterInstance : ActiveObject
-{
-  private const int AnimationFrame = 0;
-  private const int AnimationCore = 1;
-  private const int AnimationArrows = 2;
-  private const int AnimationSpinner = 3;
-  private const int AnimationSmallWheel = 4;
-  private AnimationInstance _animationFrame;
-  private AnimationInstance _animationCore;
-  private AnimationInstance _animationArrows;
-  private AnimationInstance _animationSpinner;
-  private AnimationInstance _animationSmallWheel;
-  private int _strength = 128 /*0x80*/;
-
-  [StateVariable]
-  private int Strength
+  public class CPZSpeedBoosterInstance : ActiveObject
   {
-    get => this._strength;
-    set => this._strength = value;
-  }
+    private const int AnimationFrame = 0;
+    private const int AnimationCore = 1;
+    private const int AnimationArrows = 2;
+    private const int AnimationSpinner = 3;
+    private const int AnimationSmallWheel = 4;
+    private AnimationInstance _animationFrame;
+    private AnimationInstance _animationCore;
+    private AnimationInstance _animationArrows;
+    private AnimationInstance _animationSpinner;
+    private AnimationInstance _animationSmallWheel;
+    private int _strength = 128 /*0x80*/;
 
-  protected override void OnStart()
-  {
-    AnimationGroup loadedResource = this.ResourceTree.GetLoadedResource<AnimationGroup>(this.Type.GetAbsolutePath("/ANIGROUP"));
-    this._animationFrame = new AnimationInstance(loadedResource);
-    this._animationCore = new AnimationInstance(loadedResource, 1);
-    this._animationArrows = new AnimationInstance(loadedResource, 2);
-    this._animationSpinner = new AnimationInstance(loadedResource, 3);
-    this._animationSmallWheel = new AnimationInstance(loadedResource, 4);
-    this.CollisionRectangles = new CollisionRectangle[1]
+    [StateVariable]
+    private int Strength
     {
-      new CollisionRectangle((ActiveObject) this, 0, -64, -64, 128 /*0x80*/, 32 /*0x20*/)
-    };
-    this.DesignBounds = new Rectanglei(-158, -188, 316, 376);
-    this.Priority = 1512;
-    this.Level.ObjectManager.AddSubObject<CPZSpeedBoosterInstance.BackWheel>((ActiveObject) this);
-  }
-
-  protected override void OnCollision(CollisionEvent e)
-  {
-    ICharacter activeObject = (ICharacter) e.ActiveObject;
-    if (activeObject.IsAirborne || this._strength == 0)
-      return;
-    if (activeObject.GroundVelocity < (double) Math.Abs(this._strength) || Math.Sign(activeObject.GroundVelocity) != Math.Sign(this._strength))
-    {
-      activeObject.GroundVelocity = (double) this._strength;
-      activeObject.SlopeLockTicks = 15;
-      activeObject.Facing = Math.Sign(this._strength);
-      bool flag = false;
-      double x = this.Level.Camera.Velocity.X;
-      if (this._strength < 0)
-        flag = x >= 0.0;
-      else if (this._strength > 0)
-        flag = x <= 0.0;
-      if (flag)
-        activeObject.CameraProperties.Delay = new Vector2i(16 /*0x10*/, this.CameraProperties.Delay.Y);
+      get => this._strength;
+      set => this._strength = value;
     }
-    this.Level.SoundManager.PlaySound((IActiveObject) this, "SONICORCA/SOUND/SPRING");
-  }
 
-  protected override void OnAnimate()
-  {
-    if (this._strength == 0)
-      return;
-    this._animationFrame.Animate();
-    this._animationCore.Animate();
-    this._animationArrows.Animate();
-    this._animationSpinner.Animate();
-    this._animationSmallWheel.Animate();
-  }
-
-  protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
-  {
-    if (this._strength == 0)
-      return;
-    bool flipX = this._strength < 0;
-    IObjectRenderer objectRenderer = renderer.GetObjectRenderer();
-    objectRenderer.Render(this._animationFrame, new Vector2(0.0, 0.0));
-    objectRenderer.Render(this._animationCore, new Vector2(0.0, 0.0));
-    objectRenderer.Render(this._animationArrows, new Vector2(0.0, 0.0), flipX);
-    objectRenderer.Render(this._animationSpinner, new Vector2(64.0, 0.0), !flipX);
-    objectRenderer.Render(this._animationSmallWheel, new Vector2(-112.0, 0.0), flipX);
-    objectRenderer.Render(this._animationSmallWheel, new Vector2(112.0, 0.0), flipX);
-  }
-
-  private class BackWheel : ActiveObject
-  {
-    protected override void OnUpdate()
+    protected override void OnStart()
     {
-      if (this.ParentObject is CPZSpeedBoosterInstance parentObject && !parentObject.Finished)
+      AnimationGroup loadedResource = this.ResourceTree.GetLoadedResource<AnimationGroup>(this.Type.GetAbsolutePath("/ANIGROUP"));
+      this._animationFrame = new AnimationInstance(loadedResource);
+      this._animationCore = new AnimationInstance(loadedResource, 1);
+      this._animationArrows = new AnimationInstance(loadedResource, 2);
+      this._animationSpinner = new AnimationInstance(loadedResource, 3);
+      this._animationSmallWheel = new AnimationInstance(loadedResource, 4);
+      this.CollisionRectangles = new CollisionRectangle[1]
+      {
+        new CollisionRectangle((ActiveObject) this, 0, -64, -64, 128 /*0x80*/, 32 /*0x20*/)
+      };
+      this.DesignBounds = new Rectanglei(-158, -188, 316, 376);
+      this.Priority = 1512;
+      this.Level.ObjectManager.AddSubObject<CPZSpeedBoosterInstance.BackWheel>((ActiveObject) this);
+    }
+
+    protected override void OnCollision(CollisionEvent e)
+    {
+      ICharacter activeObject = (ICharacter) e.ActiveObject;
+      if (activeObject.IsAirborne || this._strength == 0)
         return;
-      this.Finish();
+      if (activeObject.GroundVelocity < (double) Math.Abs(this._strength) || Math.Sign(activeObject.GroundVelocity) != Math.Sign(this._strength))
+      {
+        activeObject.GroundVelocity = (double) this._strength;
+        activeObject.SlopeLockTicks = 15;
+        activeObject.Facing = Math.Sign(this._strength);
+        bool flag = false;
+        double x = this.Level.Camera.Velocity.X;
+        if (this._strength < 0)
+          flag = x >= 0.0;
+        else if (this._strength > 0)
+          flag = x <= 0.0;
+        if (flag)
+          activeObject.CameraProperties.Delay = new Vector2i(16 /*0x10*/, this.CameraProperties.Delay.Y);
+      }
+      this.Level.SoundManager.PlaySound((IActiveObject) this, "SONICORCA/SOUND/SPRING");
+    }
+
+    protected override void OnAnimate()
+    {
+      if (this._strength == 0)
+        return;
+      this._animationFrame.Animate();
+      this._animationCore.Animate();
+      this._animationArrows.Animate();
+      this._animationSpinner.Animate();
+      this._animationSmallWheel.Animate();
     }
 
     protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
     {
-      if (!(this.ParentObject is CPZSpeedBoosterInstance parentObject) || parentObject._strength == 0)
+      if (this._strength == 0)
         return;
-      bool flipX = parentObject._strength < 0;
-      renderer.GetObjectRenderer().Render(parentObject._animationSpinner, new Vector2(-64.0, 0.0), flipX);
+      bool flipX = this._strength < 0;
+      IObjectRenderer objectRenderer = renderer.GetObjectRenderer();
+      objectRenderer.Render(this._animationFrame, new Vector2(0.0, 0.0));
+      objectRenderer.Render(this._animationCore, new Vector2(0.0, 0.0));
+      objectRenderer.Render(this._animationArrows, new Vector2(0.0, 0.0), flipX);
+      objectRenderer.Render(this._animationSpinner, new Vector2(64.0, 0.0), !flipX);
+      objectRenderer.Render(this._animationSmallWheel, new Vector2(-112.0, 0.0), flipX);
+      objectRenderer.Render(this._animationSmallWheel, new Vector2(112.0, 0.0), flipX);
+    }
+
+    private class BackWheel : ActiveObject
+    {
+      protected override void OnUpdate()
+      {
+        if (this.ParentObject is CPZSpeedBoosterInstance parentObject && !parentObject.Finished)
+          return;
+        this.Finish();
+      }
+
+      protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
+      {
+        if (!(this.ParentObject is CPZSpeedBoosterInstance parentObject) || parentObject._strength == 0)
+          return;
+        bool flipX = parentObject._strength < 0;
+        renderer.GetObjectRenderer().Render(parentObject._animationSpinner, new Vector2(-64.0, 0.0), flipX);
+      }
     }
   }
 }

@@ -7,15 +7,16 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-namespace SONICORCA.OBJECTS.CPZSPEEDBOOSTER;
+namespace SONICORCA.OBJECTS.CPZSPEEDBOOSTER {
 
-[SonicOrca.Core.Objects.Metadata.Name("Speed Booster")]
-[Description("Speed Booster from Chemical Plant Zone, Sonic 2")]
-[ObjectInstance(typeof (CPZSpeedBoosterInstance))]
-public class CPZSpeedBoosterType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
-  [Dependency]
-  public const string SoundResourceKey = "SONICORCA/SOUND/SPRING";
+  [SonicOrca.Core.Objects.Metadata.Name("Speed Booster")]
+  [Description("Speed Booster from Chemical Plant Zone, Sonic 2")]
+  [ObjectInstance(typeof (CPZSpeedBoosterInstance))]
+  public class CPZSpeedBoosterType : ObjectType
+  {
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+    [Dependency]
+    public const string SoundResourceKey = "SONICORCA/SOUND/SPRING";
+  }
 }

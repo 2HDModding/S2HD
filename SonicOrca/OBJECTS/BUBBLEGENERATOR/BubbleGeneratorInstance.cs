@@ -8,36 +8,37 @@ using SonicOrca.Core;
 using SonicOrca.Extensions;
 using SonicOrca.Graphics;
 
-namespace SONICORCA.OBJECTS.BUBBLEGENERATOR;
+namespace SONICORCA.OBJECTS.BUBBLEGENERATOR {
 
-public class BubbleGeneratorInstance : ActiveObject
-{
-  private AnimationInstance _animation;
-  private int _nextLargeBubbleTime;
-  private int _nextSmallBubbleTime;
-
-  protected override void OnStart()
+  public class BubbleGeneratorInstance : ActiveObject
   {
-    this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"));
-  }
+    private AnimationInstance _animation;
+    private int _nextLargeBubbleTime;
+    private int _nextSmallBubbleTime;
 
-  protected override void OnUpdate()
-  {
-    if (this._nextLargeBubbleTime-- <= 0)
+    protected override void OnStart()
     {
-      this._nextLargeBubbleTime = 960;
-      this.Level.WaterManager.CreateBubble(this.Level.Map.Layers.IndexOf(this.Layer), this.Position, 2);
+      this._animation = new AnimationInstance(this.ResourceTree, this.Type.GetAbsolutePath("/ANIGROUP"));
     }
-    if (this._nextSmallBubbleTime-- > 0)
-      return;
-    this._nextSmallBubbleTime = this.Level.Random.Next(64 /*0x40*/, 128 /*0x80*/);
-    this.Level.WaterManager.CreateBubble(this.Level.Map.Layers.IndexOf(this.Layer), this.Position, this.Level.Random.Next(0, 2));
-  }
 
-  protected override void OnAnimate() => this._animation.Animate();
+    protected override void OnUpdate()
+    {
+      if (this._nextLargeBubbleTime-- <= 0)
+      {
+        this._nextLargeBubbleTime = 960;
+        this.Level.WaterManager.CreateBubble(this.Level.Map.Layers.IndexOf(this.Layer), this.Position, 2);
+      }
+      if (this._nextSmallBubbleTime-- > 0)
+        return;
+      this._nextSmallBubbleTime = this.Level.Random.Next(64 /*0x40*/, 128 /*0x80*/);
+      this.Level.WaterManager.CreateBubble(this.Level.Map.Layers.IndexOf(this.Layer), this.Position, this.Level.Random.Next(0, 2));
+    }
 
-  protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
-  {
-    renderer.GetObjectRenderer().Render(this._animation);
+    protected override void OnAnimate() => this._animation.Animate();
+
+    protected override void OnDraw(Renderer renderer, LayerViewOptions viewOptions)
+    {
+      renderer.GetObjectRenderer().Render(this._animation);
+    }
   }
 }

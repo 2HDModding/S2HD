@@ -7,14 +7,15 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-namespace SONICORCA.OBJECTS.CPZDOOR;
+namespace SONICORCA.OBJECTS.CPZDOOR {
 
-[SonicOrca.Core.Objects.Metadata.Name("One-way door")]
-[Description("One-way door from from Chemical Plant Zone, Sonic 2")]
-[SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Obstacle)]
-[ObjectInstance(typeof (CPZDoorInstance))]
-public class CPZDoorType : ObjectType
-{
-  [Dependency]
-  public const string AnimationGroupResourceKey = "/ANIGROUP";
+  [SonicOrca.Core.Objects.Metadata.Name("One-way door")]
+  [Description("One-way door from from Chemical Plant Zone, Sonic 2")]
+  [SonicOrca.Core.Objects.Metadata.Classification(ObjectClassification.Obstacle)]
+  [ObjectInstance(typeof (CPZDoorInstance))]
+  public class CPZDoorType : ObjectType
+  {
+    [Dependency]
+    public const string AnimationGroupResourceKey = "/ANIGROUP";
+  }
 }
