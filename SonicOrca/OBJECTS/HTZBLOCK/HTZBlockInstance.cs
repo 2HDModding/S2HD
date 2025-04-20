@@ -11,7 +11,6 @@ using SonicOrca.Extensions;
 using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZBLOCK;
 
 public class HTZBlockInstance : Platform

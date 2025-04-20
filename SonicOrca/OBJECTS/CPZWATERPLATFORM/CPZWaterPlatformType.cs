@@ -9,7 +9,6 @@ using SonicOrca.Core.Objects.Base;
 using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZWATERPLATFORM;
 
 [SonicOrca.Core.Objects.Metadata.Name("Water platform")]

@@ -13,7 +13,6 @@ using SonicOrca.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZROCK;
 
 public class HTZRockInstance : ActiveObject

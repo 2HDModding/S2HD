@@ -10,7 +10,6 @@ using SonicOrca.Resources;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.LEVELS.WFZ.AREA;
 
 public class WingFortressZoneArea : Area

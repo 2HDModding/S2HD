@@ -15,7 +15,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.SPRINGBOARD;
 
 public class SpringBoardInstance : ActiveObject

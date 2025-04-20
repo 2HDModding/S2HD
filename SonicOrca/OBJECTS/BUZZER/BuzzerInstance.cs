@@ -14,7 +14,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.BUZZER;
 
 public class BuzzerInstance : Badnik

@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.WATEREGGMAN;
 
 [SonicOrca.Core.Objects.Metadata.Name("Water Eggman")]

@@ -16,7 +16,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.RING;
 
 public class RingInstance : ActiveObject

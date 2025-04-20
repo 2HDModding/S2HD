@@ -10,7 +10,6 @@ using SonicOrca.Resources;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.LEVELS.MCZ.AREA;
 
 public class MysticCaveZoneArea : Area

@@ -6,7 +6,6 @@
 
 using System;
 
-#nullable disable
 namespace SonicOrca;
 
 internal class FiniteStateMachine

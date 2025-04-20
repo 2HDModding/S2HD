@@ -9,7 +9,6 @@ using SonicOrca.Extensions;
 using SonicOrca.Graphics;
 using SonicOrca.Resources;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class SettingUIResources : IControlResources, ISettingUIResources

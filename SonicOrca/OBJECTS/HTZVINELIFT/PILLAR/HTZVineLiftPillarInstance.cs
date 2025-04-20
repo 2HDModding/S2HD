@@ -10,7 +10,6 @@ using SonicOrca.Extensions;
 using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZVINELIFT.PILLAR;
 
 public class HTZVineLiftPillarInstance : ActiveObject

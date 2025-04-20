@@ -12,7 +12,6 @@ using SonicOrca.Input;
 using System;
 using System.Collections.Immutable;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class ListMenuViewPresenter : IMenuViewPresenter

@@ -14,7 +14,6 @@ using SonicOrca.Graphics;
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.STARPOST;
 
 public class StarpostInstance : ActiveObject

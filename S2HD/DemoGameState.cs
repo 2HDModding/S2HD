@@ -11,7 +11,6 @@ using SonicOrca.Resources;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace S2HD;
 
 internal class DemoGameState : IGameState, IDisposable

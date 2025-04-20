@@ -15,7 +15,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.BUBBLE;
 
 public class BubbleInstance : ActiveObject

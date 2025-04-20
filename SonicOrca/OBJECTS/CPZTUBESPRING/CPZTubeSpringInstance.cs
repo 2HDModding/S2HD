@@ -13,7 +13,6 @@ using SonicOrca.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZTUBESPRING;
 
 public class CPZTubeSpringInstance : ActiveObject

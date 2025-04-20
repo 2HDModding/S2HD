@@ -16,7 +16,6 @@ using SonicOrca.Resources;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.SUBMARINEEGGMAN;
 
 public class SubmarineEggmanInstance : BossObject

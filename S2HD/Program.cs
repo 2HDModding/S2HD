@@ -15,7 +15,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-#nullable disable
 namespace S2HD;
 
 public static class Program

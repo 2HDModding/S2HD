@@ -16,7 +16,6 @@ using SonicOrca.Resources;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.REXON;
 
 public class RexonInstance : ActiveObject

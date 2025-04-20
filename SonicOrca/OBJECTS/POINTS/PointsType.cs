@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.POINTS;
 
 [SonicOrca.Core.Objects.Metadata.Name("Points")]

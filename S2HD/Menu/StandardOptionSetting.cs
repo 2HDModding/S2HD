@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class StandardOptionSetting : ISpinnerSetting, ISetting

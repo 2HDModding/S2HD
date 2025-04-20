@@ -13,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace S2HD;
 
 internal class DisclaimerGameState : IGameState, IDisposable

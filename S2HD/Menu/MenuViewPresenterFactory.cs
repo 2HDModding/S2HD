@@ -7,7 +7,6 @@
 using SonicOrca;
 using System;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class MenuViewPresenterFactory

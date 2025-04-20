@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZTUBESPRING;
 
 [SonicOrca.Core.Objects.Metadata.Name("Tube spring")]

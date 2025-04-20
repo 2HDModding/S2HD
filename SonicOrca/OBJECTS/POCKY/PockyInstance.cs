@@ -7,7 +7,6 @@
 using SonicOrca.Core.Objects.Base;
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.POCKY;
 
 public class PockyInstance : Animal

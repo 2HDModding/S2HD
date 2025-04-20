@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal interface IMenuViewPresenter

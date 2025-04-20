@@ -12,7 +12,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace SonicOrca.Menu;
 
 internal class SegaScreen : Screen

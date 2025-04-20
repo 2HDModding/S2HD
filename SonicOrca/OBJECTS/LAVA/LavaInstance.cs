@@ -13,7 +13,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.LAVA;
 
 public class LavaInstance : ActiveObject

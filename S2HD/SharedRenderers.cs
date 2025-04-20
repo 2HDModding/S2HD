@@ -7,7 +7,6 @@
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace S2HD;
 
 internal static class SharedRenderers

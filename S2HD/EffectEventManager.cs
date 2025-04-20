@@ -7,7 +7,6 @@
 using SonicOrca;
 using System.Collections.Generic;
 
-#nullable disable
 namespace S2HD;
 
 internal class EffectEventManager

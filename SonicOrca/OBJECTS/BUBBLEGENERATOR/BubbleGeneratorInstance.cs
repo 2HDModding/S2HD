@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Extensions;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.BUBBLEGENERATOR;
 
 public class BubbleGeneratorInstance : ActiveObject

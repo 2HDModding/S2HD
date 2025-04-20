@@ -22,7 +22,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-#nullable disable
 namespace SonicOrca;
 
 internal class S2HDSonicOrcaGameContext(IPlatform platform) : SonicOrcaGameContext(platform)

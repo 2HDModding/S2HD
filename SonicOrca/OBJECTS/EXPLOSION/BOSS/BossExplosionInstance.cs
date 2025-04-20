@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Core.Objects.Base;
 using SonicOrca.Extensions;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.EXPLOSION.BOSS;
 
 public class BossExplosionInstance : ParticleObject

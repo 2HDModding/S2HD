@@ -15,7 +15,6 @@ using SonicOrca.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZBREAKABLEPLATFORM;
 
 public class HTZBreakablePlatformInstance : ActiveObject

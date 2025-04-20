@@ -17,7 +17,6 @@ using SONICORCA.OBJECTS.DUST;
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.DRILLEGGMAN;
 
 public class DrillEggmanInstance : BossObject

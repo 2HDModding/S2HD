@@ -13,7 +13,6 @@ using SonicOrca.Graphics;
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.TAILS;
 
 public class TailsInstance : Character

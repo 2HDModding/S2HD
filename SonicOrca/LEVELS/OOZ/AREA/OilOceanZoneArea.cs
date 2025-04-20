@@ -10,7 +10,6 @@ using SonicOrca.Resources;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.LEVELS.OOZ.AREA;
 
 public class OilOceanZoneArea : Area

@@ -13,7 +13,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZSPEEDBOOSTER;
 
 public class CPZSpeedBoosterInstance : ActiveObject

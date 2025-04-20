@@ -14,7 +14,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZDOOR;
 
 public class HTZDoorInstance : ActiveObject

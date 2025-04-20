@@ -8,7 +8,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Immutable;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class ButtonBarUI

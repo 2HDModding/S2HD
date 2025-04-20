@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class OptionsMenu : IDisposable

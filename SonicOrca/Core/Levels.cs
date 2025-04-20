@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SonicOrca.Core;
 
 internal static class Levels

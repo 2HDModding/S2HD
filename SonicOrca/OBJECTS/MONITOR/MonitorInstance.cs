@@ -13,7 +13,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using SonicOrca.Resources;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.MONITOR;
 
 public class MonitorInstance : ActiveObject

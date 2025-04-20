@@ -12,7 +12,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZCHEMICALFALL;
 
 public class CPZChemicalFallInstance : ActiveObject

@@ -14,7 +14,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.SPIKER;
 
 public class SpikerInstance : Badnik

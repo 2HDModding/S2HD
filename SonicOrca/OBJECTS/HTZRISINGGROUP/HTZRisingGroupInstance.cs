@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Geometry;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZRISINGGROUP;
 
 public class HTZRisingGroupInstance : ActiveObject

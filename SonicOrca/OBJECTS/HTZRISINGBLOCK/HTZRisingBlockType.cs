@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZRISINGBLOCK;
 
 [SonicOrca.Core.Objects.Metadata.Name("Rising block")]

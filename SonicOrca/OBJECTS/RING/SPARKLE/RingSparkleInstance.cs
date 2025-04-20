@@ -6,7 +6,6 @@
 
 using SonicOrca.Core.Objects.Base;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.RING.SPARKLE;
 
 public class RingSparkleInstance : ParticleObject

@@ -11,7 +11,6 @@ using SonicOrca.Resources;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.LEVELS.ARZ.AREA;
 
 public class AquaticRuinZoneArea : Area

@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.SIGNPOST;
 
 [SonicOrca.Core.Objects.Metadata.Name("Signpost")]

@@ -12,7 +12,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZTUBECAP;
 
 public class CPZTubeCapInstance : ActiveObject

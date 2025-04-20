@@ -7,7 +7,6 @@
 using SonicOrca.Core.Objects.Base;
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.LOCKY;
 
 public class LockyInstance : Animal

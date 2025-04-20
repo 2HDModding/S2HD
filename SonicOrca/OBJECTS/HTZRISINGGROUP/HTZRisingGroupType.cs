@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Geometry;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZRISINGGROUP;
 
 [SonicOrca.Core.Objects.Metadata.Name("Rising group")]

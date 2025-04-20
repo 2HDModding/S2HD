@@ -16,7 +16,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace S2HD.Title;
 
 internal class UserInterface

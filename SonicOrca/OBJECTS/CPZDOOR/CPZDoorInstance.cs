@@ -14,7 +14,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.CPZDOOR;
 
 public class CPZDoorInstance : ActiveObject

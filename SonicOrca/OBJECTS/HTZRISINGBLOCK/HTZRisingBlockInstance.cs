@@ -12,7 +12,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System.Linq;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZRISINGBLOCK;
 
 public class HTZRisingBlockInstance : ActiveObject

@@ -11,7 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class SettingUI

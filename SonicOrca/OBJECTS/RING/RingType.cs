@@ -9,7 +9,6 @@ using SonicOrca.Core.Objects.Metadata;
 using SonicOrca.Extensions;
 using SonicOrca.Graphics;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.RING;
 
 [SonicOrca.Core.Objects.Metadata.Name("Ring")]

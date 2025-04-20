@@ -15,7 +15,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.SPINY;
 
 public class SpinyInstance : Badnik

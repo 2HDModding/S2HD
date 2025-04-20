@@ -14,7 +14,6 @@ using SonicOrca.Graphics;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.COCONUTS;
 
 public class CoconutsInstance : Badnik

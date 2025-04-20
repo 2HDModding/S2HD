@@ -8,7 +8,6 @@ using SonicOrca.Core;
 using SonicOrca.Core.Objects.Base;
 using SonicOrca.Extensions;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.EXPLOSION.BADNIK;
 
 public class BadnikExplosionInstance : ParticleObject

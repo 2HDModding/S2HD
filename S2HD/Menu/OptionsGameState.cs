@@ -16,7 +16,6 @@ using System.Collections.Immutable;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace S2HD.Menu;
 
 internal class OptionsGameState : IGameState, IDisposable

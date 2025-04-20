@@ -7,7 +7,6 @@
 using SonicOrca.Core;
 using SonicOrca.Core.Objects.Metadata;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.HTZBREAKABLEPLATFORM;
 
 [SonicOrca.Core.Objects.Metadata.Name("Breakable platform")]

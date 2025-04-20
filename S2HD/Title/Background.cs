@@ -11,7 +11,6 @@ using SonicOrca.Graphics;
 using SonicOrca.Resources;
 using System;
 
-#nullable disable
 namespace S2HD.Title;
 
 internal class Background

@@ -7,7 +7,6 @@
 using SonicOrca.Extensions;
 using System.Collections.Generic;
 
-#nullable disable
 namespace S2HD;
 
 internal class CommandLineArguments

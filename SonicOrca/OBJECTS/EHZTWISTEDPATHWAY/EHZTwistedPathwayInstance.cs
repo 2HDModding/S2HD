@@ -11,7 +11,6 @@ using SonicOrca.Geometry;
 using SonicOrca.Graphics;
 using System;
 
-#nullable disable
 namespace SONICORCA.OBJECTS.EHZTWISTEDPATHWAY;
 
 public class EHZTwistedPathwayInstance : ActiveObject

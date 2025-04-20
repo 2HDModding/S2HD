@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-#nullable disable
 namespace S2HD;
 
 internal class StoryPlaythroughGameState : IGameState, IDisposable
