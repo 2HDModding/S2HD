@@ -4,6 +4,8 @@
 
 * Runs on x64 only (sadly)
 
+* Decomp done in one hour.
+
 # Tools used
 
 I used dotpeek to export the project and dnSpy to reference the scripts while fixing them, I also used [this](https://github.com/maybekoi/FSNSFix) to turn "namespace S2HD;" to "namespace S2HD {".
