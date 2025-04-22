@@ -329,8 +329,8 @@ namespace S2HD.Title
                 },
                 new UserInterface.MenuItem
                 {
-                    Text = "DECOMP BY MAYBEKOI"
-                    //Action = new Action(this.OnSelectQuit)
+                    Text = "LEVEL SELECT",
+                    Action = new Action(() => { this._levelSelectEnabled = true; this.InitialiseLevelSelect(); })
                 }
             };
             this._menuItemWidgets = new UserInterface.MenuItemWidget[5];

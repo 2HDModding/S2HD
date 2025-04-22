@@ -71,7 +71,7 @@ namespace SonicOrca
       {
         this._gameContext = gameContext;
         Version appVersion = Program.AppVersion;
-        this._versionText = $"Version {appVersion.Major}.{appVersion.Minor} Demo Build {appVersion.Build}";
+        this._versionText = $"Version {appVersion.Major}.{appVersion.Minor} Demo Build {appVersion.Build} | Decomp by maybekoi";
       }
 
       private void LoadResources()
